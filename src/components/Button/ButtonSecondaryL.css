@@ -1,0 +1,54 @@
+.button-secondary-l {
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  color: var(--button-secondary-label);
+  padding: var(--button-l-padding-top-bottom) var(--button-l-padding-left-right);
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  
+  /* Default state styles using tokens via CSS custom properties */
+  background-color: var(--button-secondary-bg-default);
+  border: 1px solid var(--button-secondary-border);
+  box-shadow: var(--button-secondary-shadow);
+}
+
+/* Static state classes (for programmatic state control) */
+.button-secondary-l--hover {
+  background-color: var(--button-secondary-bg-hover);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.button-secondary-l--pressed {
+  background-color: var(--button-secondary-bg-pressed);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+/* Interactive hover and active states (for buttons without explicit state prop) */
+.button-secondary-l:hover:not(:disabled):not([data-state="Hover"]):not([data-state="Pressed"]) {
+  background-color: var(--button-secondary-bg-hover);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.button-secondary-l:active:not(:disabled):not([data-state="Hover"]):not([data-state="Pressed"]) {
+  background-color: var(--button-secondary-bg-pressed);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.button-secondary-l:focus {
+  outline: 2px solid rgba(var(--button-primary-accent-rgb), 0.5);
+  outline-offset: 2px;
+}
+
