@@ -1,8 +1,253 @@
 {
   "project": "Design System v1",
   "version": "1.0.0",
-  "description": "Initial setup configuration",
+  "description": "A modern, glassmorphism-based design system featuring a clean dashboard interface with frosted glass effects, comprehensive component library, and data visualization capabilities.",
   "created": "2024",
-  "status": "active"
+  "status": "active",
+  "designSystem": {
+    "overallTheme": {
+      "style": "Modern glassmorphism with backdrop blur effects",
+      "aesthetic": "Clean, minimalist, professional dashboard interface",
+      "visualLanguage": "Frosted glass surfaces with subtle gradients and shadows",
+      "background": "Light gray base (#e5e5e5) with elevated card surfaces"
+    },
+    "colorSystem": {
+      "surfaces": {
+        "pageBackground": "#e5e5e5",
+        "raisedSurface": "rgba(212,212,212,0.2) with backdrop blur",
+        "raisedGradient": "From rgba(255,255,255,0.7) to rgba(255,255,255,0.21)",
+        "flyoutBackground": "rgba(212,212,212,0.2) with backdrop blur",
+        "overlayBackground": "rgba(226,238,249,0.2) for information messages"
+      },
+      "primary": {
+        "accent": "#0081ff",
+        "label": "white",
+        "shadow": "0px 12px 20px -16px rgba(0,129,255,1)"
+      },
+      "text": {
+        "primary": "#484848",
+        "secondary": "#808080"
+      },
+      "borders": {
+        "strokeGradient": "white",
+        "default": "white with subtle opacity"
+      },
+      "status": {
+        "success": "rgba(29, 180, 36, 1)",
+        "warning": "rgba(232, 172, 61, 1)",
+        "error": "rgba(203, 53, 56, 1)"
+      }
+    },
+    "typography": {
+      "fontFamily": "SF Pro Display (fallback: sans-serif)",
+      "styles": {
+        "title": {
+          "size": "52px",
+          "lineHeight": "64px",
+          "weight": "600 (Semibold)",
+          "letterSpacing": "-0.5px",
+          "usage": "Large numerical displays and main headings"
+        },
+        "subtitle": {
+          "size": "32px",
+          "lineHeight": "52px",
+          "weight": "600 (Semibold)",
+          "letterSpacing": "-0.5px",
+          "usage": "Secondary headings and important values"
+        },
+        "subheading": {
+          "size": "20px",
+          "lineHeight": "32px",
+          "weight": "600 (Semibold)",
+          "letterSpacing": "-0.5px",
+          "usage": "Section subheadings"
+        },
+        "textStrong": {
+          "size": "16px",
+          "lineHeight": "24px",
+          "weight": "600 (Semibold)",
+          "letterSpacing": "0px",
+          "usage": "Emphasized body text, card titles"
+        },
+        "text": {
+          "size": "16px",
+          "lineHeight": "24px",
+          "weight": "400 (Regular)",
+          "letterSpacing": "0px",
+          "usage": "Body text, descriptions"
+        },
+        "label": {
+          "size": "16px",
+          "lineHeight": "24px",
+          "weight": "500 (Medium)",
+          "letterSpacing": "0px",
+          "usage": "Button labels, interactive elements"
+        },
+        "labelSmall": {
+          "size": "14px",
+          "lineHeight": "20px",
+          "weight": "500 (Medium)",
+          "letterSpacing": "0px",
+          "usage": "Secondary labels, timestamps"
+        }
+      }
+    },
+    "spacing": {
+      "modulePadding": {
+        "top": "16px",
+        "bottom": "32px",
+        "leftRight": "24px"
+      },
+      "buttonPadding": {
+        "large": {
+          "topBottom": "12px",
+          "leftRight": "24px"
+        },
+        "small": {
+          "topBottom": "8px",
+          "leftRight": "16px"
+        }
+      },
+      "gaps": {
+        "small": "4px",
+        "medium": "8px",
+        "large": "12px",
+        "xlarge": "16px"
+      }
+    },
+    "borderRadius": {
+      "default": "8px",
+      "surface": "24px",
+      "overlay": "24px",
+      "flyout": "12px",
+      "button": "8px",
+      "pill": "999px",
+      "avatar": "999px"
+    },
+    "effects": {
+      "backdropBlur": "20px",
+      "shadows": {
+        "buttonPrimary": "0px 12px 20px -16px rgba(0,129,255,1)",
+        "buttonSecondary": "0px 12px 20px -16px #939393",
+        "segmentedControl": "0px 4px 20px -4px rgba(0,0,0,0.18)",
+        "flyout": "0px 89px 80px 0px rgba(0,0,0,0.07), 0px 37.182px 33.422px 0px rgba(0,0,0,0.05), 0px 19.879px 17.869px 0px rgba(0,0,0,0.04), 0px 11.144px 10.017px 0px rgba(0,0,0,0.03), 0px 5.919px 5.32px 0px rgba(0,0,0,0.02), 0px 2.463px 2.214px 0px rgba(0,0,0,0.02)",
+        "messageInformation": "0px 28px 32px -16px rgba(141,168,218,0.5), 0px 36px 100px -28px rgba(160,193,253,0.5)"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": {
+          "description": "Primary action button with blue background and white text",
+          "sizes": ["Large (L)", "Small (S)"],
+          "states": ["Default", "Hover", "Pressed"],
+          "features": ["Gradient border", "Shadow effect", "Rounded corners"]
+        },
+        "secondary": {
+          "description": "Secondary button with transparent/semi-transparent background",
+          "sizes": ["Large (L)", "Small (S)"],
+          "states": ["Default", "Hover", "Pressed"],
+          "features": ["Icon support", "Rounded corners", "Subtle shadow"]
+        },
+        "tertiary": {
+          "description": "Tertiary button with transparent background and colored text",
+          "sizes": ["Large (L)", "Small (S)"],
+          "states": ["Default", "Hover", "Pressed"],
+          "features": ["No background", "Accent color text", "Minimal styling"]
+        },
+        "icon": {
+          "description": "Icon-only button with circular shape",
+          "sizes": ["24px icon with 12px padding"],
+          "features": ["Circular (64px border-radius)", "Icon support", "Shadow effect"]
+        }
+      },
+      "surfaces": {
+        "raised": {
+          "description": "Elevated card surface with glassmorphism effect",
+          "features": ["Backdrop blur", "Gradient background", "White border", "Rounded corners (24px)"]
+        },
+        "flyout": {
+          "description": "Overlay surface for tooltips and popovers",
+          "features": ["Backdrop blur", "Multiple shadow layers", "Rounded corners (12px)"]
+        },
+        "overlay": {
+          "description": "Overlay surface for messages and notifications",
+          "features": ["Backdrop blur", "Colored background tint", "Rounded corners (24px)"]
+        }
+      },
+      "navigation": {
+        "menu": {
+          "description": "Horizontal navigation menu with glassmorphism background",
+          "features": ["Frosted glass effect", "Button group layout", "Responsive spacing"]
+        },
+        "segmentedControl": {
+          "description": "Pill-shaped segmented control for filtering/selection",
+          "variants": ["2 options", "4 options"],
+          "features": ["Selected state with white background", "Unselected state transparent", "Pill-shaped container"]
+        }
+      },
+      "dataDisplay": {
+        "chart": {
+          "description": "Line chart with grid, labels, and interactive tooltip",
+          "features": ["Y-axis labels", "Grid lines", "Data point markers", "Hover tooltip with flyout"]
+        },
+        "radialChart": {
+          "description": "Radial progress chart for portfolio visualization",
+          "features": ["Circular progress", "Center value display", "Status message"]
+        },
+        "badge": {
+          "description": "Status indicator badge",
+          "variants": ["Success (green)", "Warning (yellow)", "Error (red)"],
+          "features": ["Circular shape", "12px size", "Positioned on avatars"]
+        }
+      },
+      "lists": {
+        "contactList": {
+          "description": "Scrollable list of contact items",
+          "features": ["User avatars", "Name and timestamp", "Action buttons", "Scroll indicator"]
+        },
+        "contactItem": {
+          "description": "Individual contact list item",
+          "features": ["Avatar (photo or initials)", "Name (semibold)", "Timestamp (secondary text)", "Action buttons (send, more)"]
+        }
+      },
+      "notifications": {
+        "information": {
+          "description": "Information notification card",
+          "features": ["Info icon", "Title and message", "Action buttons", "Close button", "Colored background tint"]
+        }
+      },
+      "modules": {
+        "meetings": {
+          "description": "Data module displaying meeting hours",
+          "features": ["Title", "Large numerical value", "Comparative sub-text with accent color"]
+        },
+        "portfolio": {
+          "description": "Portfolio value display module",
+          "features": ["Title", "Radial chart", "Center value", "Status message"]
+        },
+        "totalBalance": {
+          "description": "Total balance display with chart",
+          "features": ["Title", "Time period selector", "Balance amount", "Date", "Line chart"]
+        },
+        "contacts": {
+          "description": "Contacts list module",
+          "features": ["Title", "Filter controls", "Scrollable contact list"]
+        }
+      }
+    },
+    "layout": {
+      "dashboard": {
+        "description": "Main dashboard layout with grid-based widget arrangement",
+        "structure": "Header navigation at top, main content area with multiple data widgets in grid layout",
+        "spacing": "24px gaps between modules, responsive positioning"
+      }
+    },
+    "interactions": {
+      "hover": "Subtle state changes on interactive elements",
+      "focus": "Visual feedback for keyboard navigation",
+      "active": "Pressed state for buttons and controls",
+      "transitions": "Smooth state transitions expected"
+    }
+  }
 }
 
