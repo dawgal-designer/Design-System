@@ -1,17 +1,16 @@
 import brandAColors from '@design-system/tokens/brand-a/colors.json'
 import brandATypography from '@design-system/tokens/brand-a/typography.json'
+import brandBColors from '@design-system/tokens/brand-b/colors.json'
+import brandBTypography from '@design-system/tokens/brand-b/typography.json'
 
-// For now, we'll create a simple token structure
-// You can expand this to include all token files
 const brands: Record<string, any> = {
   'brand-a': {
     colors: brandAColors.colors,
     typography: brandATypography.typography,
   },
   'brand-b': {
-    // Placeholder - you can add brand-b tokens later
-    colors: brandAColors.colors,
-    typography: brandATypography.typography,
+    colors: brandBColors.colors,
+    typography: brandBTypography.typography,
   },
 }
 
