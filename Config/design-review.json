@@ -1,0 +1,52 @@
+{
+  "validation_prompt": "After completing any coding activity, validate the coded elements using the following process:\n\n1. **Initial Assessment**: Review the coded implementation to understand what components and features have been created or modified.\n\n2. **Figma Comparison (if Figma links are provided)**:\n   - If Figma frame links or design references are attached, compare the coded implementation against the Figma designs\n   - Check for visual accuracy including:\n     * Layout and spacing\n     * Colors and typography\n     * Component structure and hierarchy\n     * Interactive states (hover, active, disabled, etc.)\n     * Responsive behavior (if applicable)\n   - Verify that all design specifications from Figma are correctly implemented\n\n3. **Code Quality Check**:\n   - Review code structure and organization\n   - Ensure proper naming conventions are followed\n   - Verify that design token values from tokens.json are used instead of hardcoded values (colors, spacing, typography, border radius, shadows, etc.)\n   - Check for accessibility considerations\n   - Verify component props and interfaces match requirements\n   - Confirm proper error handling where applicable\n\n4. **Functional Validation**:\n   - Verify all interactive elements work as expected\n   - Test edge cases and error states\n   - Confirm responsive behavior (if applicable)\n   - Validate data flow and state management (if applicable)\n\n5. **Iterative Validation Process**:\n   - Perform up to a maximum of 3 validation loops\n   - Each loop consists of:\n     a. Comparing coded results with Figma design (if applicable)\n     b. Identifying discrepancies or issues\n     c. Documenting findings\n     d. Making corrections if needed\n     e. Re-validating after corrections\n   - After 3 loops, document remaining issues or confirm validation complete\n\n6. **Documentation**:\n   - Document any deviations from the design (with justification if intentional)\n   - Note any limitations or constraints discovered during validation\n   - Record any recommended improvements for future iterations",
+  "validation_loops": {
+    "max_iterations": 3,
+    "loop_process": [
+      "Compare coded implementation with Figma design (if links provided)",
+      "Identify discrepancies in visual design, layout, spacing, colors, typography, and interactions",
+      "Document findings and required corrections",
+      "Apply corrections if within scope",
+      "Re-validate corrected implementation"
+    ]
+  },
+  "figma_validation_checklist": [
+    "Layout matches Figma design specifications",
+    "Spacing and padding match design tokens from tokens.json",
+    "Colors match design palette exactly and use values from tokens.json",
+    "Typography (font family, size, weight, line height) matches design",
+    "Component dimensions and sizing are accurate",
+    "Border radius and shadows match design",
+    "Interactive states (hover, active, focus, disabled) are implemented",
+    "Component hierarchy and nesting structure matches design",
+    "Iconography and imagery match design assets",
+    "Responsive breakpoints behave as specified in design",
+    "Animation and transition timings match design (if specified)"
+  ],
+  "tokens_validation_checklist": [
+    "All color values reference tokens.json instead of hardcoded hex/rgb values",
+    "All spacing values (padding, margin, gap) reference tokens.json instead of hardcoded pixel values",
+    "Typography values (font family, size, weight, line height, letter spacing) reference tokens.json",
+    "Border radius values reference tokens.json instead of hardcoded values",
+    "Shadow properties (offset, blur, spread, color, opacity) reference tokens.json",
+    "No hardcoded design values are present in the code - all should use token references",
+    "Token references use the correct path structure matching tokens.json (e.g., root.color.primary.accent, alias.button.primary.bgDefault)",
+    "Component-specific tokens use alias paths where appropriate (e.g., alias.button.l.leftRight)"
+  ],
+  "code_quality_checklist": [
+    "Code follows project conventions and patterns",
+    "Components are properly structured and modular",
+    "Naming conventions are consistent",
+    "Design token values from tokens.json are used instead of hardcoded values (colors, spacing, typography, border radius, shadows, etc.)",
+    "TypeScript types/interfaces are properly defined",
+    "Accessibility attributes are included (ARIA labels, semantic HTML)",
+    "Error handling is implemented where needed",
+    "Code is readable and well-commented where necessary",
+    "No console errors or warnings",
+    "Performance considerations are addressed"
+  ],
+  "usage_instructions": "This validation prompt should be used after any coding activity to ensure quality and design fidelity. If Figma links are provided, prioritize comparing the implementation against the design. Use the iterative validation process to refine the implementation up to 3 times, ensuring the coded result accurately represents the intended design.",
+  "version": "1.0.0",
+  "last_updated": "2024"
+}
+
