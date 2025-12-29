@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ButtonPrimaryL, ButtonSecondary } from '../Spec Design System/components';
+import { ButtonPrimaryL, ButtonSecondary } from '../SpecDesignSystem/components';
 import './App.css';
 
 function App() {

@@ -1,0 +1,119 @@
+/* Typography Component Styles */
+/* Uses CSS variables from design tokens for brand-agnostic styling */
+
+.typography {
+  margin: 0;
+  font-family: var(--font-family-primary, system-ui, sans-serif);
+}
+
+/* Typography Variants */
+.typography--display {
+  font-size: var(--text-style-display-font-size, 3.75rem);
+  font-weight: var(--text-style-display-font-weight, 700);
+  line-height: var(--text-style-display-line-height, 1.25);
+  letter-spacing: var(--text-style-display-letter-spacing, -0.025em);
+}
+
+.typography--h1 {
+  font-size: var(--text-style-h1-font-size, 3rem);
+  font-weight: var(--text-style-h1-font-weight, 700);
+  line-height: var(--text-style-h1-line-height, 1.25);
+  letter-spacing: var(--text-style-h1-letter-spacing, -0.025em);
+}
+
+.typography--h2 {
+  font-size: var(--text-style-h2-font-size, 2.25rem);
+  font-weight: var(--text-style-h2-font-weight, 600);
+  line-height: var(--text-style-h2-line-height, 1.3);
+  letter-spacing: var(--text-style-h2-letter-spacing, -0.025em);
+}
+
+.typography--h3 {
+  font-size: var(--text-style-h3-font-size, 1.875rem);
+  font-weight: var(--text-style-h3-font-weight, 600);
+  line-height: var(--text-style-h3-line-height, 1.4);
+  letter-spacing: var(--text-style-h3-letter-spacing, 0em);
+}
+
+.typography--h4 {
+  font-size: var(--text-style-h4-font-size, 1.5rem);
+  font-weight: var(--text-style-h4-font-weight, 600);
+  line-height: var(--text-style-h4-line-height, 1.5);
+  letter-spacing: var(--text-style-h4-letter-spacing, 0em);
+}
+
+.typography--h5 {
+  font-size: var(--text-style-h5-font-size, 1.25rem);
+  font-weight: var(--text-style-h5-font-weight, 500);
+  line-height: var(--text-style-h5-line-height, 1.5);
+  letter-spacing: var(--text-style-h5-letter-spacing, 0em);
+}
+
+.typography--h6 {
+  font-size: var(--text-style-h6-font-size, 1.125rem);
+  font-weight: var(--text-style-h6-font-weight, 500);
+  line-height: var(--text-style-h6-line-height, 1.5);
+  letter-spacing: var(--text-style-h6-letter-spacing, 0em);
+}
+
+.typography--body {
+  font-size: var(--text-style-body-font-size, 1rem);
+  font-weight: var(--text-style-body-font-weight, 400);
+  line-height: var(--text-style-body-line-height, 1.5);
+  letter-spacing: var(--text-style-body-letter-spacing, 0em);
+}
+
+.typography--small {
+  font-size: var(--text-style-small-font-size, 0.875rem);
+  font-weight: var(--text-style-small-font-weight, 400);
+  line-height: var(--text-style-small-line-height, 1.5);
+  letter-spacing: var(--text-style-small-letter-spacing, 0em);
+}
+
+.typography--caption {
+  font-size: var(--text-style-caption-font-size, 0.75rem);
+  font-weight: var(--text-style-caption-font-weight, 400);
+  line-height: var(--text-style-caption-line-height, 1.5);
+  letter-spacing: var(--text-style-caption-letter-spacing, 0.025em);
+}
+
+/* Color Variants */
+.typography--color-primary {
+  color: var(--color-text-primary, #111827);
+}
+
+.typography--color-secondary {
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.typography--color-tertiary {
+  color: var(--color-text-tertiary, #9ca3af);
+}
+
+.typography--color-inverse {
+  color: var(--color-text-inverse, #ffffff);
+}
+
+/* Alignment */
+.typography--align-left {
+  text-align: left;
+}
+
+.typography--align-center {
+  text-align: center;
+}
+
+.typography--align-right {
+  text-align: right;
+}
+
+.typography--align-justify {
+  text-align: justify;
+}
+
+/* Bold Modifier */
+.typography--bold {
+  font-weight: var(--font-weight-bold, 700);
+}
+
+

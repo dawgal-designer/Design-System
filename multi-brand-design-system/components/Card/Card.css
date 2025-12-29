@@ -1,0 +1,101 @@
+/* Card Component Styles */
+/* Uses CSS variables from design tokens for brand-agnostic styling */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-primary, #ffffff);
+  border: 1px solid var(--color-border-primary, #e5e7eb);
+  border-radius: var(--border-radius-large, 0.75rem);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.card--clickable {
+  cursor: pointer;
+}
+
+.card--clickable:hover {
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  transform: translateY(-2px);
+}
+
+.card--clickable:active {
+  transform: translateY(0);
+}
+
+.card--clickable:focus {
+  outline: 2px solid var(--color-primary-main, #2563eb);
+  outline-offset: 2px;
+}
+
+/* Card Image */
+.card__image {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-background-secondary, #f9fafb);
+}
+
+.card__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Card Content */
+.card__content {
+  padding: var(--spacing-lg, 1.5rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 0.75rem);
+}
+
+.card__title {
+  margin: 0;
+  font-family: var(--font-family-primary, system-ui, sans-serif);
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-tight, 1.25);
+  color: var(--color-text-primary, #111827);
+}
+
+.card__description {
+  margin: 0;
+  font-family: var(--font-family-primary, system-ui, sans-serif);
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--line-height-normal, 1.5);
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* Card Tags */
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs, 0.5rem);
+  margin-top: var(--spacing-xs, 0.5rem);
+}
+
+.card__tag {
+  display: inline-block;
+  padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 0.75rem);
+  font-family: var(--font-family-primary, system-ui, sans-serif);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--line-height-normal, 1.5);
+  color: var(--color-primary-main, #2563eb);
+  background-color: var(--color-background-secondary, #f9fafb);
+  border: 1px solid var(--color-border-primary, #e5e7eb);
+  border-radius: var(--border-radius-small, 0.25rem);
+}
+
+/* Card Footer */
+.card__footer {
+  padding: var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
+  border-top: 1px solid var(--color-border-primary, #e5e7eb);
+  background-color: var(--color-background-secondary, #f9fafb);
+}
+
+

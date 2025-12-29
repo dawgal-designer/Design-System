@@ -1,0 +1,24 @@
+{
+  "name": "spec-design-system",
+  "version": "1.0.0",
+  "description": "Multi-brand design system with React components",
+  "type": "module",
+  "main": "./components/index.ts",
+  "types": "./components/index.ts",
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
+
+

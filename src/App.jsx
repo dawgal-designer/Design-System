@@ -1,5 +1,5 @@
 import { ThemeProvider, useTheme } from './context/ThemeContext'
-import { Card } from '../Spec Design System/components'
+import { Card } from '@design-system/components'
 import { BrandToggle } from './components/Controls/BrandToggle'
 import { ModeToggle } from './components/Controls/ModeToggle'
 import { DensityToggle } from './components/Controls/DensityToggle'
