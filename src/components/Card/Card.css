@@ -1,0 +1,68 @@
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: calc(var(--card-border-radius) * 0.75);
+  background: var(--card-border);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--card-gap) * 0.5);
+}
+
+.card-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: var(--line-height);
+}
+
+.card-description {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: var(--line-height);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--card-gap) * 0.5);
+  margin-top: calc(var(--card-gap) * 0.5);
+}
+
+.card-tag {
+  font-size: calc(var(--font-size-base) * 0.875);
+  padding: 4px 8px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: calc(var(--card-border-radius) * 0.5);
+  font-weight: 500;
+}
+
