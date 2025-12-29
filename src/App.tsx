@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ButtonPrimaryL, ButtonSecondaryL } from './components/Button';
+import { ButtonPrimaryL, ButtonSecondary } from '../Spec Design System/components';
 import './App.css';
 
 function App() {
@@ -43,15 +43,15 @@ function App() {
         <div className="demo-section">
           <h2 className="section-title">Button Secondary L - Interactive Buttons (Hover & Click)</h2>
           <div className="button-group">
-            <ButtonSecondaryL 
+            <ButtonSecondary 
               label="Hover & Click Me" 
               onClick={() => setClickCount(prev => prev + 1)}
             />
-            <ButtonSecondaryL 
+            <ButtonSecondary 
               label="Interactive Button" 
               onClick={() => alert('Button clicked!')}
             />
-            <ButtonSecondaryL 
+            <ButtonSecondary 
               label="Click Counter" 
               onClick={() => setClickCount(prev => prev + 1)}
             />
@@ -61,9 +61,9 @@ function App() {
         <div className="demo-section">
           <h2 className="section-title">Button Secondary L - Static State Examples</h2>
           <div className="button-group">
-            <ButtonSecondaryL label="Default State" state="Default" />
-            <ButtonSecondaryL label="Hover State" state="Hover" />
-            <ButtonSecondaryL label="Pressed State" state="Pressed" />
+            <ButtonSecondary label="Default State" state="Default" />
+            <ButtonSecondary label="Hover State" state="Hover" />
+            <ButtonSecondary label="Pressed State" state="Pressed" />
           </div>
         </div>
       </div>

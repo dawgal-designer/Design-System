@@ -1,11 +1,11 @@
-# Multi-Brand Design System
+# Spec Design System
 
 A design system structure supporting multiple brands with shared token architecture and brand-agnostic React components.
 
 ## Structure
 
 ```
-multi-brand-design-system/
+Spec Design System/
 ├── tokens/
 │   ├── brand-a/
 │   │   ├── colors.json
@@ -15,9 +15,10 @@ multi-brand-design-system/
 │       └── typography.json
 ├── components/
 │   ├── Button/
-│   │   ├── Button.tsx
-│   │   ├── Button.css
-│   │   ├── Button.stories.tsx
+│   │   ├── ButtonPrimaryL.tsx
+│   │   ├── ButtonPrimaryL.css
+│   │   ├── ButtonSecondary.tsx
+│   │   ├── ButtonSecondary.css
 │   │   └── README.md
 │   ├── Card/
 │   │   ├── Card.tsx
@@ -43,28 +44,30 @@ React components that are brand-agnostic and use CSS variables from design token
 
 ### Available Components
 
-- **Button**: Versatile button component with multiple variants and sizes
+- **ButtonPrimaryL**: Primary button component with solid background and shadow
+- **ButtonSecondary**: Secondary button component with lighter background
 - **Card**: Flexible container component for displaying content
 - **Typography**: Consistent text styling component with multiple variants
+- **Surface**: Surface component for elevated content areas
 
 Each component includes:
 - TypeScript definitions
 - CSS using design token variables
 - Comprehensive documentation
-- Storybook stories (where applicable)
 
 ## Usage
 
 ### Importing Components
 
 ```tsx
-import { Button, Card, Typography } from './components'
+import { ButtonPrimaryL, ButtonSecondary, Card, Typography } from './components'
 
 function App() {
   return (
     <Card title="Example" description="This adapts to the current brand">
       <Typography variant="h1">Heading</Typography>
-      <Button variant="primary">Click me</Button>
+      <ButtonPrimaryL label="Click me" onClick={() => alert('Clicked!')} />
+      <ButtonSecondary label="Secondary Action" onClick={() => alert('Secondary!')} />
     </Card>
   )
 }

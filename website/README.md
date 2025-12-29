@@ -52,7 +52,7 @@ npm run build
 
 ## Integration with Design System
 
-The website imports components from the `multi-brand-design-system` folder using the `@design-system` alias configured in `vite.config.ts`.
+The website imports components from the `Spec Design System` folder using the `@design-system` alias configured in `vite.config.ts`.
 
 Example:
 ```tsx
