@@ -117,3 +117,4 @@ To add a new brand:
 - CSS Custom Properties (CSS Variables)
 - Context API for state management
 
+

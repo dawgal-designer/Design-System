@@ -85,3 +85,4 @@ export const Typography: React.FC<TypographyProps> = ({
   return <Component className={typographyClasses}>{children}</Component>
 }
 
+
