@@ -1,0 +1,95 @@
+.tokens-page {
+  width: 100%;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl, 2rem);
+  padding-bottom: var(--spacing-xl, 2rem);
+  border-bottom: 1px solid var(--color-border-primary, #e5e7eb);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md, 1rem);
+  color: var(--color-text-primary, #111827);
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary, #6b7280);
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+.tokens-section {
+  margin-top: var(--spacing-xl, 2rem);
+}
+
+.tokens-info {
+  margin-bottom: var(--spacing-xl, 2rem);
+  padding: var(--spacing-lg, 1.5rem);
+  background-color: var(--color-background-secondary, #f9fafb);
+  border-radius: var(--border-radius-large, 0.75rem);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md, 1rem);
+  color: var(--color-text-primary, #111827);
+}
+
+.tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg, 1.5rem);
+}
+
+.token-category {
+  padding: var(--spacing-lg, 1.5rem);
+  background-color: var(--color-background-secondary, #f9fafb);
+  border: 1px solid var(--color-border-primary, #e5e7eb);
+  border-radius: var(--border-radius-large, 0.75rem);
+}
+
+.token-category__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md, 1rem);
+  color: var(--color-text-primary, #111827);
+}
+
+.token-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 0.75rem);
+}
+
+.token-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm, 0.75rem);
+  background-color: var(--color-background-primary, #ffffff);
+  border-radius: var(--border-radius-small, 0.25rem);
+}
+
+.token-name {
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: var(--color-text-primary, #111827);
+}
+
+.token-value {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.color-swatch {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--border-radius-small, 0.25rem);
+  border: 1px solid var(--color-border-primary, #e5e7eb);
+}
+

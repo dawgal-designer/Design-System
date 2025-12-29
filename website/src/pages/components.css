@@ -1,0 +1,59 @@
+.components-page {
+  width: 100%;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl, 2rem);
+  padding-bottom: var(--spacing-xl, 2rem);
+  border-bottom: 1px solid var(--color-border-primary, #e5e7eb);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md, 1rem);
+  color: var(--color-text-primary, #111827);
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary, #6b7280);
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+.components-section {
+  margin-top: var(--spacing-xl, 2rem);
+}
+
+.demo-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg, 1.5rem);
+}
+
+.demo-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 0.75rem);
+}
+
+.demo-group h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #111827);
+  margin: 0;
+}
+
+.demo-row {
+  display: flex;
+  gap: var(--spacing-md, 1rem);
+  flex-wrap: wrap;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md, 1rem);
+}
+
