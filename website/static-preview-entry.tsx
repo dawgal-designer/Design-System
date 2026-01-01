@@ -1,9 +1,8 @@
 import React, { useState, createContext, useContext, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
-import { ButtonPrimaryL } from '@design-system/components/Button/ButtonPrimaryL'
-import { ButtonSecondaryL } from '@design-system/components/Button/ButtonSecondaryL'
-import { Surface } from '@design-system/components/Surface/Surface'
+import { ButtonPrimaryL, ButtonSecondaryL, Surface } from '@design-system/components'
 import { injectTokenCSSVariables } from './src/utils/injectTokens'
+import './static-preview.css'
 
 // Brand Context
 const BrandContext = createContext<{

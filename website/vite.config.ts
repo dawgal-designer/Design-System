@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@design-system': path.resolve(__dirname, '../SpecDesignSystem'),
+      '@design-system': path.resolve(__dirname, '../design-system'),
     },
   },
 })

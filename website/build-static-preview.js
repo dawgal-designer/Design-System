@@ -1,5 +1,5 @@
 import { build } from 'esbuild'
-import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, statSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -40,7 +40,7 @@ function getComponentCSSFiles(dir, basePath = '') {
   return files
 }
 
-const componentCSSFiles = getComponentCSSFiles(join(projectRoot, 'SpecDesignSystem', 'components'))
+const componentCSSFiles = getComponentCSSFiles(join(projectRoot, 'design-system', 'components'))
 let componentCSS = ''
 for (const file of componentCSSFiles) {
   try {
@@ -49,6 +49,14 @@ for (const file of componentCSSFiles) {
   } catch (err) {
     console.warn(`Could not read CSS file: ${file.path}`)
   }
+}
+
+// Add static-preview.css
+try {
+  const staticPreviewCSS = readFileSync(join(websiteRoot, 'static-preview.css'), 'utf-8')
+  componentCSS += `\n    /* static-preview.css */\n${staticPreviewCSS}\n`
+} catch (err) {
+  console.warn('Could not read static-preview.css')
 }
 
 // Ensure dist directory exists
@@ -74,13 +82,61 @@ await build({
     'process.env.NODE_ENV': '"production"',
   },
   alias: {
-    '@design-system': join(projectRoot, 'SpecDesignSystem'),
+    '@design-system': join(projectRoot, 'design-system'),
   },
   loader: {
     '.json': 'json',
   },
   resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   plugins: [
+    // Plugin to resolve @design-system imports
+    {
+      name: 'design-system-resolver',
+      setup(build) {
+        build.onResolve({ filter: /^@design-system\// }, (args) => {
+          const path = args.path.replace('@design-system/', '')
+          const designSystemPath = join(projectRoot, 'design-system', path)
+          
+          // Check if path already has an extension
+          const hasExtension = /\.(ts|tsx|js|jsx|json)$/.test(designSystemPath)
+          
+          // If it exists as-is (with or without extension), return it
+          if (existsSync(designSystemPath)) {
+            try {
+              const stats = statSync(designSystemPath)
+              if (stats.isDirectory()) {
+                // Try index.ts, index.tsx, index.js, index.jsx
+                for (const ext of ['.ts', '.tsx', '.js', '.jsx']) {
+                  const indexPath = join(designSystemPath, `index${ext}`)
+                  if (existsSync(indexPath)) {
+                    return { path: indexPath }
+                  }
+                }
+              } else {
+                // It's a file, return it
+                return { path: designSystemPath }
+              }
+            } catch (err) {
+              // Error checking stats, but file exists, return it
+              return { path: designSystemPath }
+            }
+          }
+          
+          // If no extension, try adding common extensions
+          if (!hasExtension) {
+            for (const ext of ['.ts', '.tsx', '.js', '.jsx', '.json']) {
+              const filePath = designSystemPath + ext
+              if (existsSync(filePath)) {
+                return { path: filePath }
+              }
+            }
+          }
+          
+          // Fallback: return the path and let esbuild handle it
+          return { path: designSystemPath }
+        })
+      },
+    },
     // Plugin to replace React/ReactDOM imports with globals and prevent JSX runtime
     {
       name: 'react-global',

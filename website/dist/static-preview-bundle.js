@@ -1,0 +1,754 @@
+"use strict";
+(() => {
+  // react-global:react
+  var react_default = React;
+  var { useState, useEffect, createContext, useContext, useLayoutEffect, Fragment } = React;
+
+  // react-global:react-dom/client
+  var { createRoot } = ReactDOM;
+  var client_default = { createRoot: ReactDOM.createRoot };
+
+  // react-jsx-stub:react/jsx-runtime
+  var jsx = React.createElement;
+  var jsxs = React.createElement;
+  var Fragment2 = React.Fragment;
+
+  // ../design-system/components/Button/ButtonPrimaryL.tsx
+  var ButtonPrimaryL = ({
+    label,
+    state = "Default",
+    children,
+    className = "",
+    onClick,
+    disabled,
+    ...props
+  }) => {
+    const buttonClasses = [
+      "button-primary-l",
+      `button-primary-l--${state.toLowerCase()}`,
+      className
+    ].filter(Boolean).join(" ");
+    const content = label || children;
+    return /* @__PURE__ */ jsx(
+      "button",
+      {
+        className: buttonClasses,
+        onClick,
+        disabled,
+        "data-state": state,
+        ...props,
+        children: content
+      }
+    );
+  };
+
+  // ../design-system/components/Button/ButtonSecondaryL.tsx
+  var ButtonSecondaryL = ({
+    label,
+    state = "Default",
+    children,
+    className = "",
+    onClick,
+    disabled,
+    ...props
+  }) => {
+    const buttonClasses = [
+      "button-secondary-l",
+      `button-secondary-l--${state.toLowerCase()}`,
+      className
+    ].filter(Boolean).join(" ");
+    const content = label || children;
+    return /* @__PURE__ */ jsx(
+      "button",
+      {
+        className: buttonClasses,
+        onClick,
+        disabled,
+        "data-state": state,
+        ...props,
+        children: content
+      }
+    );
+  };
+
+  // ../design-system/components/Surface/Surface.tsx
+  var Surface = ({
+    elevation = 1,
+    children,
+    className = "",
+    padding = "md",
+    radius = "md"
+  }) => {
+    const surfaceClasses = [
+      "surface",
+      `surface--elevation-${elevation}`,
+      `surface--padding-${padding}`,
+      `surface--radius-${radius}`,
+      className
+    ].filter(Boolean).join(" ");
+    return /* @__PURE__ */ jsx("div", { className: surfaceClasses, children });
+  };
+
+  // ../design-system/tokens/brand-a/colors.json
+  var colors_default = {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    description: "Brand A color tokens in W3C Design Token format",
+    "brand-a": {
+      color: {
+        neutral: {
+          "0": { $value: "#FFFFFF", $type: "color" },
+          "0-alpha-90": { $value: "rgba(255, 255, 255, 0.9)", $type: "color" },
+          "0-alpha-80": { $value: "rgba(255, 255, 255, 0.8)", $type: "color" },
+          "0-alpha-70": { $value: "rgba(255, 255, 255, 0.7)", $type: "color" },
+          "0-alpha-50": { $value: "rgba(255, 255, 255, 0.5)", $type: "color" },
+          "50": { $value: "#F9FAFB", $type: "color" },
+          "50-alpha-90": { $value: "rgba(249, 250, 251, 0.9)", $type: "color" },
+          "50-alpha-80": { $value: "rgba(249, 250, 251, 0.8)", $type: "color" },
+          "50-alpha-70": { $value: "rgba(249, 250, 251, 0.7)", $type: "color" },
+          "50-alpha-50": { $value: "rgba(249, 250, 251, 0.5)", $type: "color" },
+          "100": { $value: "#F3F4F6", $type: "color" },
+          "100-alpha-90": { $value: "rgba(243, 244, 246, 0.9)", $type: "color" },
+          "100-alpha-80": { $value: "rgba(243, 244, 246, 0.8)", $type: "color" },
+          "100-alpha-70": { $value: "rgba(243, 244, 246, 0.7)", $type: "color" },
+          "100-alpha-50": { $value: "rgba(243, 244, 246, 0.5)", $type: "color" },
+          "200": { $value: "#E5E7EB", $type: "color" },
+          "200-alpha-90": { $value: "rgba(229, 231, 235, 0.9)", $type: "color" },
+          "200-alpha-80": { $value: "rgba(229, 231, 235, 0.8)", $type: "color" },
+          "200-alpha-70": { $value: "rgba(229, 231, 235, 0.7)", $type: "color" },
+          "200-alpha-50": { $value: "rgba(229, 231, 235, 0.5)", $type: "color" },
+          "300": { $value: "#D1D5DB", $type: "color" },
+          "400": { $value: "#9CA3AF", $type: "color" },
+          "500": { $value: "#6B7280", $type: "color" },
+          "500-alpha-90": { $value: "rgba(107, 114, 128, 0.9)", $type: "color" },
+          "500-alpha-80": { $value: "rgba(107, 114, 128, 0.8)", $type: "color" },
+          "500-alpha-70": { $value: "rgba(107, 114, 128, 0.7)", $type: "color" },
+          "500-alpha-50": { $value: "rgba(107, 114, 128, 0.5)", $type: "color" },
+          "600": { $value: "#4B5563", $type: "color" },
+          "700": { $value: "#374151", $type: "color" },
+          "700-alpha-90": { $value: "rgba(55, 65, 81, 0.9)", $type: "color" },
+          "700-alpha-80": { $value: "rgba(55, 65, 81, 0.8)", $type: "color" },
+          "700-alpha-70": { $value: "rgba(55, 65, 81, 0.7)", $type: "color" },
+          "700-alpha-50": { $value: "rgba(55, 65, 81, 0.5)", $type: "color" },
+          "800": { $value: "#1F2937", $type: "color" },
+          "900": { $value: "#111827", $type: "color" },
+          "900-alpha-90": { $value: "rgba(17, 24, 39, 0.9)", $type: "color" },
+          "900-alpha-80": { $value: "rgba(17, 24, 39, 0.8)", $type: "color" },
+          "900-alpha-70": { $value: "rgba(17, 24, 39, 0.7)", $type: "color" },
+          "900-alpha-50": { $value: "rgba(17, 24, 39, 0.5)", $type: "color" },
+          "950": { $value: "#030712", $type: "color" },
+          "950-alpha-90": { $value: "rgba(3, 7, 18, 0.9)", $type: "color" },
+          "950-alpha-80": { $value: "rgba(3, 7, 18, 0.8)", $type: "color" },
+          "950-alpha-70": { $value: "rgba(3, 7, 18, 0.7)", $type: "color" },
+          "950-alpha-50": { $value: "rgba(3, 7, 18, 0.5)", $type: "color" }
+        },
+        primary: {
+          main: { $value: "#2563EB", $type: "color" },
+          light: { $value: "#3B82F6", $type: "color" },
+          dark: { $value: "#1E40AF", $type: "color" },
+          contrast: { $value: "#FFFFFF", $type: "color" }
+        },
+        secondary: {
+          main: { $value: "#7C3AED", $type: "color" },
+          light: { $value: "#8B5CF6", $type: "color" },
+          dark: { $value: "#6D28D9", $type: "color" },
+          contrast: { $value: "#FFFFFF", $type: "color" }
+        },
+        accent: {
+          main: { $value: "#10B981", $type: "color" },
+          light: { $value: "#34D399", $type: "color" },
+          dark: { $value: "#059669", $type: "color" },
+          contrast: { $value: "#FFFFFF", $type: "color" }
+        },
+        semantic: {
+          success: { $value: "#10B981", $type: "color" },
+          warning: { $value: "#F59E0B", $type: "color" },
+          error: { $value: "#EF4444", $type: "color" },
+          info: { $value: "#3B82F6", $type: "color" },
+          background: {
+            primary: { $value: "{brand-a.color.neutral.0}", $type: "color" },
+            secondary: { $value: "{brand-a.color.neutral.50}", $type: "color" },
+            tertiary: { $value: "{brand-a.color.neutral.100}", $type: "color" }
+          },
+          text: {
+            primary: { $value: "{brand-a.color.neutral.900}", $type: "color" },
+            secondary: { $value: "{brand-a.color.neutral.500}", $type: "color" },
+            tertiary: { $value: "{brand-a.color.neutral.400}", $type: "color" },
+            inverse: { $value: "{brand-a.color.neutral.0}", $type: "color" }
+          },
+          border: {
+            primary: { $value: "{brand-a.color.neutral.200}", $type: "color" },
+            secondary: { $value: "{brand-a.color.neutral.300}", $type: "color" },
+            focus: { $value: "{brand-a.color.primary.main}", $type: "color" }
+          }
+        }
+      }
+    }
+  };
+
+  // ../design-system/tokens/brand-a/typography.json
+  var typography_default = {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    description: "Brand A typography tokens in W3C Design Token format",
+    "brand-a": {
+      typography: {
+        fontFamily: {
+          primary: { $value: '"Inter", system-ui, -apple-system, sans-serif', $type: "fontFamily" },
+          secondary: { $value: '"Playfair Display", Georgia, serif', $type: "fontFamily" },
+          monospace: { $value: '"Fira Code", "Courier New", monospace', $type: "fontFamily" }
+        },
+        fontSize: {
+          xs: { $value: "0.75rem", $type: "dimension" },
+          sm: { $value: "0.875rem", $type: "dimension" },
+          base: { $value: "1rem", $type: "dimension" },
+          lg: { $value: "1.125rem", $type: "dimension" },
+          xl: { $value: "1.25rem", $type: "dimension" },
+          "2xl": { $value: "1.5rem", $type: "dimension" },
+          "3xl": { $value: "1.875rem", $type: "dimension" },
+          "4xl": { $value: "2.25rem", $type: "dimension" },
+          "5xl": { $value: "3rem", $type: "dimension" },
+          "6xl": { $value: "3.75rem", $type: "dimension" }
+        },
+        fontWeight: {
+          light: { $value: 300, $type: "number" },
+          regular: { $value: 400, $type: "number" },
+          medium: { $value: 500, $type: "number" },
+          semibold: { $value: 600, $type: "number" },
+          bold: { $value: 700, $type: "number" },
+          extrabold: { $value: 800, $type: "number" }
+        },
+        lineHeight: {
+          tight: { $value: 1.25, $type: "number" },
+          normal: { $value: 1.5, $type: "number" },
+          relaxed: { $value: 1.75, $type: "number" },
+          loose: { $value: 2, $type: "number" }
+        },
+        letterSpacing: {
+          tight: { $value: "-0.025em", $type: "dimension" },
+          normal: { $value: "0em", $type: "dimension" },
+          wide: { $value: "0.025em", $type: "dimension" },
+          wider: { $value: "0.05em", $type: "dimension" },
+          widest: { $value: "0.1em", $type: "dimension" }
+        },
+        textStyles: {
+          display: {
+            fontSize: { $value: "3.75rem", $type: "dimension" },
+            fontWeight: { $value: 700, $type: "number" },
+            lineHeight: { $value: 1.25, $type: "number" },
+            letterSpacing: { $value: "-0.025em", $type: "dimension" }
+          },
+          h1: {
+            fontSize: { $value: "3rem", $type: "dimension" },
+            fontWeight: { $value: 700, $type: "number" },
+            lineHeight: { $value: 1.25, $type: "number" },
+            letterSpacing: { $value: "-0.025em", $type: "dimension" }
+          },
+          h2: {
+            fontSize: { $value: "2.25rem", $type: "dimension" },
+            fontWeight: { $value: 600, $type: "number" },
+            lineHeight: { $value: 1.3, $type: "number" },
+            letterSpacing: { $value: "-0.025em", $type: "dimension" }
+          },
+          h3: {
+            fontSize: { $value: "1.875rem", $type: "dimension" },
+            fontWeight: { $value: 600, $type: "number" },
+            lineHeight: { $value: 1.4, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          h4: {
+            fontSize: { $value: "1.5rem", $type: "dimension" },
+            fontWeight: { $value: 600, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          h5: {
+            fontSize: { $value: "1.25rem", $type: "dimension" },
+            fontWeight: { $value: 500, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          h6: {
+            fontSize: { $value: "1.125rem", $type: "dimension" },
+            fontWeight: { $value: 500, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          body: {
+            fontSize: { $value: "1rem", $type: "dimension" },
+            fontWeight: { $value: 400, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          small: {
+            fontSize: { $value: "0.875rem", $type: "dimension" },
+            fontWeight: { $value: 400, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          caption: {
+            fontSize: { $value: "0.75rem", $type: "dimension" },
+            fontWeight: { $value: 400, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0.025em", $type: "dimension" }
+          }
+        }
+      }
+    }
+  };
+
+  // ../design-system/tokens/brand-b/colors.json
+  var colors_default2 = {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    description: "Brand B color tokens in W3C Design Token format",
+    "brand-b": {
+      color: {
+        neutral: {
+          "0": { $value: "#FFFFFF", $type: "color" },
+          "0-alpha-90": { $value: "rgba(255, 255, 255, 0.9)", $type: "color" },
+          "0-alpha-80": { $value: "rgba(255, 255, 255, 0.8)", $type: "color" },
+          "0-alpha-70": { $value: "rgba(255, 255, 255, 0.7)", $type: "color" },
+          "0-alpha-50": { $value: "rgba(255, 255, 255, 0.5)", $type: "color" },
+          "50": { $value: "#FAFAFA", $type: "color" },
+          "50-alpha-90": { $value: "rgba(250, 250, 250, 0.9)", $type: "color" },
+          "50-alpha-80": { $value: "rgba(250, 250, 250, 0.8)", $type: "color" },
+          "50-alpha-70": { $value: "rgba(250, 250, 250, 0.7)", $type: "color" },
+          "50-alpha-50": { $value: "rgba(250, 250, 250, 0.5)", $type: "color" },
+          "100": { $value: "#F5F5F5", $type: "color" },
+          "100-alpha-90": { $value: "rgba(245, 245, 245, 0.9)", $type: "color" },
+          "100-alpha-80": { $value: "rgba(245, 245, 245, 0.8)", $type: "color" },
+          "100-alpha-70": { $value: "rgba(245, 245, 245, 0.7)", $type: "color" },
+          "100-alpha-50": { $value: "rgba(245, 245, 245, 0.5)", $type: "color" },
+          "200": { $value: "#E5E5E5", $type: "color" },
+          "200-alpha-90": { $value: "rgba(229, 229, 229, 0.9)", $type: "color" },
+          "200-alpha-80": { $value: "rgba(229, 229, 229, 0.8)", $type: "color" },
+          "200-alpha-70": { $value: "rgba(229, 229, 229, 0.7)", $type: "color" },
+          "200-alpha-50": { $value: "rgba(229, 229, 229, 0.5)", $type: "color" },
+          "300": { $value: "#D4D4D4", $type: "color" },
+          "400": { $value: "#A3A3A3", $type: "color" },
+          "500": { $value: "#737373", $type: "color" },
+          "500-alpha-90": { $value: "rgba(115, 115, 115, 0.9)", $type: "color" },
+          "500-alpha-80": { $value: "rgba(115, 115, 115, 0.8)", $type: "color" },
+          "500-alpha-70": { $value: "rgba(115, 115, 115, 0.7)", $type: "color" },
+          "500-alpha-50": { $value: "rgba(115, 115, 115, 0.5)", $type: "color" },
+          "600": { $value: "#525252", $type: "color" },
+          "700": { $value: "#404040", $type: "color" },
+          "700-alpha-90": { $value: "rgba(64, 64, 64, 0.9)", $type: "color" },
+          "700-alpha-80": { $value: "rgba(64, 64, 64, 0.8)", $type: "color" },
+          "700-alpha-70": { $value: "rgba(64, 64, 64, 0.7)", $type: "color" },
+          "700-alpha-50": { $value: "rgba(64, 64, 64, 0.5)", $type: "color" },
+          "800": { $value: "#262626", $type: "color" },
+          "900": { $value: "#171717", $type: "color" },
+          "900-alpha-90": { $value: "rgba(23, 23, 23, 0.9)", $type: "color" },
+          "900-alpha-80": { $value: "rgba(23, 23, 23, 0.8)", $type: "color" },
+          "900-alpha-70": { $value: "rgba(23, 23, 23, 0.7)", $type: "color" },
+          "900-alpha-50": { $value: "rgba(23, 23, 23, 0.5)", $type: "color" },
+          "950": { $value: "#0A0A0A", $type: "color" },
+          "950-alpha-90": { $value: "rgba(10, 10, 10, 0.9)", $type: "color" },
+          "950-alpha-80": { $value: "rgba(10, 10, 10, 0.8)", $type: "color" },
+          "950-alpha-70": { $value: "rgba(10, 10, 10, 0.7)", $type: "color" },
+          "950-alpha-50": { $value: "rgba(10, 10, 10, 0.5)", $type: "color" }
+        },
+        primary: {
+          main: { $value: "#DC2626", $type: "color" },
+          light: { $value: "#EF4444", $type: "color" },
+          dark: { $value: "#B91C1C", $type: "color" },
+          contrast: { $value: "#FFFFFF", $type: "color" }
+        },
+        secondary: {
+          main: { $value: "#EA580C", $type: "color" },
+          light: { $value: "#F97316", $type: "color" },
+          dark: { $value: "#C2410C", $type: "color" },
+          contrast: { $value: "#FFFFFF", $type: "color" }
+        },
+        accent: {
+          main: { $value: "#059669", $type: "color" },
+          light: { $value: "#10B981", $type: "color" },
+          dark: { $value: "#047857", $type: "color" },
+          contrast: { $value: "#FFFFFF", $type: "color" }
+        },
+        semantic: {
+          success: { $value: "#10B981", $type: "color" },
+          warning: { $value: "#F59E0B", $type: "color" },
+          error: { $value: "#DC2626", $type: "color" },
+          info: { $value: "#3B82F6", $type: "color" },
+          background: {
+            primary: { $value: "{brand-b.color.neutral.0}", $type: "color" },
+            secondary: { $value: "{brand-b.color.neutral.50}", $type: "color" },
+            tertiary: { $value: "{brand-b.color.neutral.100}", $type: "color" }
+          },
+          text: {
+            primary: { $value: "{brand-b.color.neutral.900}", $type: "color" },
+            secondary: { $value: "{brand-b.color.neutral.500}", $type: "color" },
+            tertiary: { $value: "{brand-b.color.neutral.400}", $type: "color" },
+            inverse: { $value: "{brand-b.color.neutral.0}", $type: "color" }
+          },
+          border: {
+            primary: { $value: "{brand-b.color.neutral.200}", $type: "color" },
+            secondary: { $value: "{brand-b.color.neutral.300}", $type: "color" },
+            focus: { $value: "{brand-b.color.primary.main}", $type: "color" }
+          }
+        }
+      }
+    }
+  };
+
+  // ../design-system/tokens/brand-b/typography.json
+  var typography_default2 = {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    description: "Brand B typography tokens in W3C Design Token format",
+    "brand-b": {
+      typography: {
+        fontFamily: {
+          primary: { $value: '"Roboto", system-ui, -apple-system, sans-serif', $type: "fontFamily" },
+          secondary: { $value: '"Merriweather", Georgia, serif', $type: "fontFamily" },
+          monospace: { $value: '"Source Code Pro", "Courier New", monospace', $type: "fontFamily" }
+        },
+        fontSize: {
+          xs: { $value: "0.75rem", $type: "dimension" },
+          sm: { $value: "0.875rem", $type: "dimension" },
+          base: { $value: "1rem", $type: "dimension" },
+          lg: { $value: "1.125rem", $type: "dimension" },
+          xl: { $value: "1.25rem", $type: "dimension" },
+          "2xl": { $value: "1.5rem", $type: "dimension" },
+          "3xl": { $value: "1.875rem", $type: "dimension" },
+          "4xl": { $value: "2.25rem", $type: "dimension" },
+          "5xl": { $value: "3rem", $type: "dimension" },
+          "6xl": { $value: "3.75rem", $type: "dimension" }
+        },
+        fontWeight: {
+          light: { $value: 300, $type: "number" },
+          regular: { $value: 400, $type: "number" },
+          medium: { $value: 500, $type: "number" },
+          semibold: { $value: 600, $type: "number" },
+          bold: { $value: 700, $type: "number" },
+          extrabold: { $value: 800, $type: "number" }
+        },
+        lineHeight: {
+          tight: { $value: 1.25, $type: "number" },
+          normal: { $value: 1.5, $type: "number" },
+          relaxed: { $value: 1.75, $type: "number" },
+          loose: { $value: 2, $type: "number" }
+        },
+        letterSpacing: {
+          tight: { $value: "-0.025em", $type: "dimension" },
+          normal: { $value: "0em", $type: "dimension" },
+          wide: { $value: "0.025em", $type: "dimension" },
+          wider: { $value: "0.05em", $type: "dimension" },
+          widest: { $value: "0.1em", $type: "dimension" }
+        },
+        textStyles: {
+          display: {
+            fontSize: { $value: "3.75rem", $type: "dimension" },
+            fontWeight: { $value: 700, $type: "number" },
+            lineHeight: { $value: 1.25, $type: "number" },
+            letterSpacing: { $value: "-0.025em", $type: "dimension" }
+          },
+          h1: {
+            fontSize: { $value: "3rem", $type: "dimension" },
+            fontWeight: { $value: 700, $type: "number" },
+            lineHeight: { $value: 1.25, $type: "number" },
+            letterSpacing: { $value: "-0.025em", $type: "dimension" }
+          },
+          h2: {
+            fontSize: { $value: "2.25rem", $type: "dimension" },
+            fontWeight: { $value: 600, $type: "number" },
+            lineHeight: { $value: 1.3, $type: "number" },
+            letterSpacing: { $value: "-0.025em", $type: "dimension" }
+          },
+          h3: {
+            fontSize: { $value: "1.875rem", $type: "dimension" },
+            fontWeight: { $value: 600, $type: "number" },
+            lineHeight: { $value: 1.4, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          h4: {
+            fontSize: { $value: "1.5rem", $type: "dimension" },
+            fontWeight: { $value: 600, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          h5: {
+            fontSize: { $value: "1.25rem", $type: "dimension" },
+            fontWeight: { $value: 500, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          h6: {
+            fontSize: { $value: "1.125rem", $type: "dimension" },
+            fontWeight: { $value: 500, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          body: {
+            fontSize: { $value: "1rem", $type: "dimension" },
+            fontWeight: { $value: 400, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          small: {
+            fontSize: { $value: "0.875rem", $type: "dimension" },
+            fontWeight: { $value: 400, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0em", $type: "dimension" }
+          },
+          caption: {
+            fontSize: { $value: "0.75rem", $type: "dimension" },
+            fontWeight: { $value: 400, $type: "number" },
+            lineHeight: { $value: 1.5, $type: "number" },
+            letterSpacing: { $value: "0.025em", $type: "dimension" }
+          }
+        }
+      }
+    }
+  };
+
+  // src/utils/injectTokens.ts
+  function extractTokens(obj, prefix = "", tokens = {}) {
+    Object.entries(obj).forEach(([key, value]) => {
+      const path = prefix ? `${prefix}.${key}` : key;
+      if (value && typeof value === "object" && "$value" in value) {
+        tokens[path] = value.$value;
+      } else if (value && typeof value === "object" && !Array.isArray(value)) {
+        extractTokens(value, path, tokens);
+      }
+    });
+    return tokens;
+  }
+  function hasReference(value) {
+    return typeof value === "string" && /\{[^}]+\}/.test(value);
+  }
+  function resolveReference(value, resolvedTokens, brandId) {
+    if (typeof value !== "string") {
+      return value;
+    }
+    const referencePattern = /\{([^}]+)\}/g;
+    let resolved = value;
+    let match;
+    let foundReference = false;
+    referencePattern.lastIndex = 0;
+    while ((match = referencePattern.exec(value)) !== null) {
+      foundReference = true;
+      const referencePath = match[1];
+      if (referencePath in resolvedTokens) {
+        const resolvedValue = resolvedTokens[referencePath];
+        resolved = resolved.replace(match[0], String(resolvedValue));
+      } else {
+        let fullPath = referencePath;
+        if (!referencePath.startsWith(brandId)) {
+          const pathWithoutBrand = referencePath.replace(/^brand-[ab]\./, "");
+          fullPath = `${brandId}.${pathWithoutBrand}`;
+        }
+        if (fullPath in resolvedTokens) {
+          const resolvedValue = resolvedTokens[fullPath];
+          resolved = resolved.replace(match[0], String(resolvedValue));
+        } else {
+          console.warn(`[Token Injection] Token reference not found: ${referencePath} (tried: ${fullPath})`);
+        }
+      }
+    }
+    return resolved;
+  }
+  function resolveAllReferences(tokens, brandId) {
+    const resolved = { ...tokens };
+    const maxIterations = 10;
+    let iteration = 0;
+    let hasUnresolved = true;
+    while (hasUnresolved && iteration < maxIterations) {
+      hasUnresolved = false;
+      iteration++;
+      Object.entries(resolved).forEach(([path, value]) => {
+        if (hasReference(value)) {
+          const resolvedValue = resolveReference(value, resolved, brandId);
+          resolved[path] = resolvedValue;
+          if (hasReference(resolvedValue)) {
+            hasUnresolved = true;
+          }
+        }
+      });
+    }
+    if (hasUnresolved) {
+      console.warn(`[Token Injection] Some references could not be resolved after ${maxIterations} iterations`);
+    }
+    return resolved;
+  }
+  function camelToKebab(str) {
+    return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+  }
+  function pathToCSSVar(path) {
+    return `--${path.replace(/\./g, "-")}`;
+  }
+  function injectCSSVariables(root2, tokens, brandId) {
+    Object.entries(tokens).forEach(([path, value]) => {
+      const cssVarName = pathToCSSVar(path);
+      root2.style.setProperty(cssVarName, String(value));
+    });
+    const semanticColorPattern = new RegExp(`^${brandId}\\.color\\.semantic\\.`);
+    const semanticTypographyPattern = new RegExp(`^${brandId}\\.typography\\.`);
+    Object.entries(tokens).forEach(([path, value]) => {
+      if (semanticColorPattern.test(path)) {
+        const semanticPath = path.replace(semanticColorPattern, "color-").replace(/\./g, "-");
+        const aliasVarName = `--${semanticPath}`;
+        root2.style.setProperty(aliasVarName, String(value));
+      }
+      if (semanticTypographyPattern.test(path)) {
+        const pathWithoutPrefix = path.replace(semanticTypographyPattern, "");
+        const parts = pathWithoutPrefix.split(".");
+        const kebabParts = parts.map((part) => camelToKebab(part));
+        const typographyPath = kebabParts.join("-");
+        const aliasVarName = `--${typographyPath}`;
+        root2.style.setProperty(aliasVarName, String(value));
+        const legacyVarName = `--font-${typographyPath}`;
+        root2.style.setProperty(legacyVarName, String(value));
+        if (path.includes(".textStyles.")) {
+          const pathWithoutPrefix2 = path.replace(semanticTypographyPattern, "");
+          const parts2 = pathWithoutPrefix2.split(".");
+          const styleParts = parts2.slice(1).map((part) => camelToKebab(part));
+          const textStylePath = `text-style-${styleParts.join("-")}`;
+          const textStyleVarName = `--${textStylePath}`;
+          root2.style.setProperty(textStyleVarName, String(value));
+        }
+      }
+    });
+  }
+  function injectTokenCSSVariables(brandId = "brand-a") {
+    const root2 = document.documentElement;
+    console.log(`[Token Injection] Injecting tokens for brand: ${brandId}`);
+    let colorsData = null;
+    let typographyData = null;
+    if (brandId === "brand-a") {
+      colorsData = colors_default;
+      typographyData = typography_default;
+    } else if (brandId === "brand-b") {
+      colorsData = colors_default2;
+      typographyData = typography_default2;
+    } else {
+      console.warn(`[Token Injection] Brand ${brandId} not found`);
+      return;
+    }
+    const brandColors = colorsData[brandId]?.color || colorsData.color;
+    const brandTypography = typographyData[brandId]?.typography || typographyData.typography;
+    if (!brandColors && !brandTypography) {
+      console.warn(`[Token Injection] No tokens found for brand ${brandId}`);
+      return;
+    }
+    const rawTokens = {};
+    if (brandColors) {
+      const colorTokens = extractTokens(brandColors, `${brandId}.color`, {});
+      Object.assign(rawTokens, colorTokens);
+    }
+    if (brandTypography) {
+      const typographyTokens = extractTokens(brandTypography, `${brandId}.typography`, {});
+      Object.assign(rawTokens, typographyTokens);
+    }
+    console.log(`[Token Injection] Extracted ${Object.keys(rawTokens).length} tokens`);
+    const resolvedTokens = resolveAllReferences(rawTokens, brandId);
+    injectCSSVariables(root2, resolvedTokens, brandId);
+    console.log(`[Token Injection] Successfully injected tokens for ${brandId}`);
+  }
+
+  // static-preview-entry.tsx
+  var BrandContext = createContext({
+    brand: "brand-a",
+    setBrand: () => {
+    }
+  });
+  function BrandProvider({ children }) {
+    const [brand, setBrandState] = useState("brand-a");
+    useEffect(() => {
+      injectTokenCSSVariables(brand);
+    }, [brand]);
+    useEffect(() => {
+      injectTokenCSSVariables("brand-a");
+    }, []);
+    const setBrand = (newBrand) => {
+      setBrandState(newBrand);
+      injectTokenCSSVariables(newBrand);
+    };
+    return /* @__PURE__ */ jsx(BrandContext.Provider, { value: { brand, setBrand }, children });
+  }
+  function useBrand() {
+    return useContext(BrandContext);
+  }
+  function BrandSwitcher() {
+    const { brand, setBrand } = useBrand();
+    return /* @__PURE__ */ jsxs("div", { className: "brand-switcher", children: [
+      /* @__PURE__ */ jsx("label", { htmlFor: "brand-select", className: "brand-switcher__label", children: "Brand:" }),
+      /* @__PURE__ */ jsxs(
+        "select",
+        {
+          id: "brand-select",
+          value: brand,
+          onChange: (e) => setBrand(e.target.value),
+          className: "brand-switcher__select",
+          children: [
+            /* @__PURE__ */ jsx("option", { value: "brand-a", children: "Brand A" }),
+            /* @__PURE__ */ jsx("option", { value: "brand-b", children: "Brand B" })
+          ]
+        }
+      )
+    ] });
+  }
+  function ComponentDemo({
+    title,
+    description,
+    children
+  }) {
+    return /* @__PURE__ */ jsxs("div", { className: "component-demo", children: [
+      /* @__PURE__ */ jsxs("div", { className: "component-demo__header", children: [
+        /* @__PURE__ */ jsx("h3", { className: "component-demo__title", children: title }),
+        description && /* @__PURE__ */ jsx("p", { className: "component-demo__description", children: description })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "component-demo__content", children })
+    ] });
+  }
+  function App() {
+    return /* @__PURE__ */ jsxs("div", { className: "app", children: [
+      /* @__PURE__ */ jsx("nav", { className: "app-nav", children: /* @__PURE__ */ jsxs("div", { className: "nav-container", children: [
+        /* @__PURE__ */ jsx("a", { href: "#", className: "nav-logo", children: "Design System" }),
+        /* @__PURE__ */ jsxs("div", { className: "nav-links", children: [
+          /* @__PURE__ */ jsx("a", { href: "#", className: "nav-link active", children: "Showcase" }),
+          /* @__PURE__ */ jsx("a", { href: "#", className: "nav-link", children: "Components" }),
+          /* @__PURE__ */ jsx("a", { href: "#", className: "nav-link", children: "Tokens" })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsx("main", { className: "app-main", children: /* @__PURE__ */ jsxs("div", { className: "index-page", children: [
+        /* @__PURE__ */ jsxs("div", { className: "page-header", children: [
+          /* @__PURE__ */ jsx("h1", { className: "page-title", children: "Multi-Brand Design System" }),
+          /* @__PURE__ */ jsx("p", { className: "page-subtitle", children: "A flexible design system that adapts to multiple brand identities" }),
+          /* @__PURE__ */ jsx(BrandSwitcher, {})
+        ] }),
+        /* @__PURE__ */ jsxs("section", { className: "showcase-section", children: [
+          /* @__PURE__ */ jsx("h2", { className: "section-title", children: "Component Showcase" }),
+          /* @__PURE__ */ jsx(
+            ComponentDemo,
+            {
+              title: "Button Component",
+              description: "Primary and secondary button variants with brand-agnostic styling",
+              children: /* @__PURE__ */ jsxs("div", { className: "demo-grid", children: [
+                /* @__PURE__ */ jsx(ButtonPrimaryL, { className: "button--large", state: "Default", children: "Primary Button" }),
+                /* @__PURE__ */ jsx(ButtonSecondaryL, { className: "button--large", state: "Default", children: "Secondary Button" }),
+                /* @__PURE__ */ jsx(ButtonPrimaryL, { className: "button--medium", state: "Default", children: "Medium Button" }),
+                /* @__PURE__ */ jsx(ButtonSecondaryL, { className: "button--small", state: "Default", children: "Small Button" })
+              ] })
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            ComponentDemo,
+            {
+              title: "Surface Component",
+              description: "Elevated surfaces with customizable elevation, padding, and border radius",
+              children: /* @__PURE__ */ jsxs("div", { className: "demo-grid", children: [
+                /* @__PURE__ */ jsx(Surface, { elevation: 1, padding: "md", children: /* @__PURE__ */ jsx("p", { children: "Elevation 1" }) }),
+                /* @__PURE__ */ jsx(Surface, { elevation: 2, padding: "md", children: /* @__PURE__ */ jsx("p", { children: "Elevation 2" }) }),
+                /* @__PURE__ */ jsx(Surface, { elevation: 3, padding: "md", children: /* @__PURE__ */ jsx("p", { children: "Elevation 3" }) })
+              ] })
+            }
+          )
+        ] })
+      ] }) })
+    ] });
+  }
+  var root = client_default.createRoot(document.getElementById("root"));
+  root.render(
+    /* @__PURE__ */ jsx(BrandProvider, { children: /* @__PURE__ */ jsx(App, {}) })
+  );
+})();

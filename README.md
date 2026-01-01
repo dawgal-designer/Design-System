@@ -33,7 +33,7 @@ portfolio-poc/
 │   ├── vite.config.ts
 │   └── tsconfig.json
 │
-├── SpecDesignSystem/          # Design system component library
+├── design-system/             # Design system component library
 │   ├── components/
 │   │   ├── Button/
 │   │   │   ├── ButtonPrimaryL.tsx
@@ -50,7 +50,7 @@ portfolio-poc/
 │           ├── colors.json
 │           └── typography.json
 │
-└── Config/                    # Configuration files
+└── config/                    # Configuration files
     ├── DesignReview.json
     └── setup.json
 ```
@@ -103,7 +103,7 @@ npm run preview
 
 ### Design System Integration
 
-The portfolio imports components from `SpecDesignSystem` using the `@design-system` alias configured in `vite.config.ts`:
+The portfolio imports components from `design-system` using the `@design-system` alias configured in `vite.config.ts`:
 
 ```tsx
 import { Button, Card, Surface, Typography } from '@design-system/components'
@@ -119,15 +119,15 @@ import { Button, Card, Surface, Typography } from '@design-system/components'
 
 ### Adding a New Brand
 
-1. Create a new folder in `SpecDesignSystem/tokens/` (e.g., `brand-c`)
+1. Create a new folder in `design-system/tokens/` (e.g., `brand-c`)
 2. Add `colors.json` and `typography.json` files
 3. Update `website/src/utils/injectTokens.ts` to include the new brand
 4. Update `BrandContext.tsx` to include the new brand option
 
 ### Adding New Components
 
-1. Create the component in `SpecDesignSystem/components/YourComponent/`
-2. Export it from `SpecDesignSystem/components/index.ts`
+1. Create the component in `design-system/components/YourComponent/`
+2. Export it from `design-system/components/index.ts`
 3. Import and use it in the portfolio pages
 
 ## Technologies
