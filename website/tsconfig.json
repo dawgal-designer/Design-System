@@ -26,7 +26,7 @@
       "@design-system/*": ["../SpecDesignSystem/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "static-preview-entry.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
 

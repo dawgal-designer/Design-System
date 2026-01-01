@@ -16,6 +16,7 @@ const BrandContext = createContext<BrandContextType>({
 export function BrandProvider({ children }: { children: React.ReactNode }) {
   const [brand, setBrandState] = useState<Brand>('brand-a')
 
+  // Initialize tokens immediately on mount and when brand changes
   useEffect(() => {
     injectTokenCSSVariables(brand)
   }, [brand])

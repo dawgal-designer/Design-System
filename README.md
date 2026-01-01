@@ -1,62 +1,70 @@
-# Portfolio POC - Brand System Switching Demo
+# Portfolio POC - Multi-Brand Design System
 
-A React proof of concept portfolio website demonstrating brand system switching with complexity levels (modes and densities).
+A React portfolio website showcasing a multi-brand design system with brand switching capabilities. The portfolio demonstrates reusable React components that adapt to different brand identities through design tokens.
 
 ## Features
 
-- **Brand Switching**: Toggle between Brand A and Brand B
-- **Mode Switching**: Switch between Light and Dark modes
-- **Density Switching**: Toggle between Comfortable and Compact densities
-- **Dynamic Theming**: All components adapt to the selected brand, mode, and density
-- **Token-Based Design System**: Organized token structure for easy customization
+- **Brand Switching**: Toggle between Brand A and Brand B themes
+- **Component Showcase**: Interactive demonstrations of all design system components
+- **Design Tokens Viewer**: Inspect design tokens (colors, typography, spacing) for each brand
+- **Multi-Page Portfolio**: React Router-based navigation with multiple showcase pages
+- **Token-Based Theming**: CSS custom properties injected from JSON token files
 
 ## Project Structure
 
 ```
 portfolio-poc/
-├── public/
-├── src/
+├── website/                    # Main portfolio application
+│   ├── src/
+│   │   ├── pages/             # Portfolio pages
+│   │   │   ├── index.tsx      # Showcase/home page
+│   │   │   ├── components.tsx # Components documentation
+│   │   │   └── tokens.tsx     # Design tokens viewer
+│   │   ├── components/        # Portfolio-specific components
+│   │   │   ├── BrandSwitcher/ # Brand switching UI
+│   │   │   └── ComponentDemo/ # Component showcase wrapper
+│   │   ├── context/
+│   │   │   └── BrandContext.tsx # Brand state management
+│   │   ├── utils/
+│   │   │   └── injectTokens.ts  # Token injection utility
+│   │   ├── App.tsx            # Main app with routing
+│   │   └── main.tsx           # Entry point
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── tsconfig.json
+│
+├── SpecDesignSystem/          # Design system component library
 │   ├── components/
+│   │   ├── Button/
+│   │   │   ├── ButtonPrimaryL.tsx
+│   │   │   └── ButtonSecondary.tsx
 │   │   ├── Card/
-│   │   │   ├── Card.jsx
-│   │   │   └── Card.css
-│   │   └── Controls/
-│   │       ├── BrandToggle.jsx
-│   │       ├── ModeToggle.jsx
-│   │       ├── DensityToggle.jsx
-│   │       └── Controls.css
-│   ├── tokens/
-│   │   ├── brandA/
-│   │   │   ├── base.js
-│   │   │   ├── light.js
-│   │   │   ├── dark.js
-│   │   │   ├── comfortable.js
-│   │   │   └── compact.js
-│   │   └── brandB/
-│   │       ├── base.js
-│   │       ├── light.js
-│   │       ├── dark.js
-│   │       ├── comfortable.js
-│   │       └── compact.js
-│   ├── styles/
-│   │   ├── brandA.css
-│   │   ├── brandB.css
-│   │   └── global.css
-│   ├── context/
-│   │   └── ThemeContext.js
-│   ├── App.jsx
-│   ├── App.css
-│   └── main.jsx
-├── package.json
-├── vite.config.js
-└── index.html
+│   │   ├── Surface/
+│   │   ├── Typography/
+│   │   └── index.ts           # Component exports
+│   └── tokens/
+│       ├── brand-a/
+│       │   ├── colors.json
+│       │   └── typography.json
+│       └── brand-b/
+│           ├── colors.json
+│           └── typography.json
+│
+└── Config/                    # Configuration files
+    ├── DesignReview.json
+    └── setup.json
 ```
 
 ## Getting Started
 
 ### Installation
 
-1. Install dependencies:
+1. Navigate to the website directory:
+```bash
+cd website
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
@@ -68,7 +76,7 @@ Start the development server:
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`
+The portfolio will be available at `http://localhost:5173`
 
 ### Build
 
@@ -86,35 +94,47 @@ npm run preview
 
 ## How It Works
 
-### Token System
+### Brand Switching
 
-The token system is organized into:
-- **Base tokens**: Core brand identity (colors, typography, spacing units)
-- **Mode tokens**: Light and dark mode variations
-- **Density tokens**: Comfortable and compact spacing/typography scales
+1. The `BrandContext` manages the current brand state (brand-a or brand-b)
+2. When a brand is selected, `injectTokens.ts` reads the corresponding JSON token files
+3. Design tokens are injected as CSS custom properties on the `:root` element
+4. All components use these CSS variables, so they automatically adapt to the selected brand
 
-### Theme Context
+### Design System Integration
 
-The `ThemeContext` manages the current brand, mode, and density state, and merges the appropriate tokens to create a complete theme object.
+The portfolio imports components from `SpecDesignSystem` using the `@design-system` alias configured in `vite.config.ts`:
 
-### Components
+```tsx
+import { Button, Card, Surface, Typography } from '@design-system/components'
+```
 
-- **Card**: Displays portfolio items with dynamic styling based on the current theme
-- **Controls**: Toggle components for switching between brands, modes, and densities
+### Pages
+
+- **Showcase** (`/`): Home page with component demonstrations
+- **Components** (`/components`): Detailed component documentation and examples
+- **Tokens** (`/tokens`): Interactive viewer for design tokens
 
 ## Customization
 
-To add a new brand:
-1. Create a new folder in `src/tokens/` (e.g., `brandC`)
-2. Create `base.js`, `light.js`, `dark.js`, `comfortable.js`, and `compact.js`
-3. Update `ThemeContext.js` to include the new brand
-4. Add a new toggle button in `BrandToggle.jsx`
+### Adding a New Brand
+
+1. Create a new folder in `SpecDesignSystem/tokens/` (e.g., `brand-c`)
+2. Add `colors.json` and `typography.json` files
+3. Update `website/src/utils/injectTokens.ts` to include the new brand
+4. Update `BrandContext.tsx` to include the new brand option
+
+### Adding New Components
+
+1. Create the component in `SpecDesignSystem/components/YourComponent/`
+2. Export it from `SpecDesignSystem/components/index.ts`
+3. Import and use it in the portfolio pages
 
 ## Technologies
 
-- React 18
-- Vite
-- CSS Custom Properties (CSS Variables)
-- Context API for state management
-
-
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **React Router** - Client-side routing
+- **Vite** - Build tool and dev server
+- **CSS Custom Properties** - Dynamic theming
+- **Context API** - State management

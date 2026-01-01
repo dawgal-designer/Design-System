@@ -1,0 +1,55 @@
+.button-showcase {
+  padding: 48px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.showcase-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+  color: var(--text-primary, #000000);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.demo-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--text-primary, #000000);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.click-feedback {
+  color: var(--text-secondary, #666666);
+  font-size: 1rem;
+  margin-top: 16px;
+}
+
+.loading-message {
+  padding: 48px;
+  text-align: center;
+  font-family: system-ui;
+}
+
+.loading-message code {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+
+
